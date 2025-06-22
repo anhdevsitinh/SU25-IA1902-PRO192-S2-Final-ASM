@@ -93,7 +93,7 @@ public class InputHandler {
 
     public static double getDouble(String inputMsg, String object) {
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
 
             try {
                 double number = Double.parseDouble(sc.nextLine());
@@ -115,7 +115,7 @@ public class InputHandler {
         }
 
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
 
             try {
                 double number = Double.parseDouble(sc.nextLine());
@@ -135,7 +135,7 @@ public class InputHandler {
     // get a double with min only
     public static double getDoubleMin(String inputMsg, String object, double min) {
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
             try {
                 double number = Double.parseDouble(sc.nextLine());
                 if (number < min) {
@@ -152,7 +152,7 @@ public class InputHandler {
     // get a double with max only
     public static double getDoubleMax(String inputMsg, String object, double max) {
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
             try {
                 double number = Double.parseDouble(sc.nextLine());
                 if (number > max) {
@@ -192,9 +192,9 @@ public class InputHandler {
 
     public static String getString(String inputMsg, String object) {
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
 
-            String str = sc.nextLine();
+            String str = sc.nextLine().trim();
 
             if (str == null || str.isEmpty()) {
                 System.out.println(object + " must not be empty!!!");
@@ -209,11 +209,11 @@ public class InputHandler {
 
     public static String getString(String inputMsg, String object, String regex) {
         while (true) {
-            System.out.println(inputMsg);
+            System.out.print(inputMsg);
 
-            String str = sc.nextLine();
+            String str = sc.nextLine().trim();
 
-            if (str == null || str.isEmpty()) {
+            if (str.isEmpty()) {
                 System.out.println(object + " must not be empty. Try again!!!");
                 continue;
             }
