@@ -133,7 +133,7 @@ public class InputHandler {
     }
 
     // get a double with min only
-    public static double getDouble(String inputMsg, String object, double min) {
+    public static double getDoubleMin(String inputMsg, String object, double min) {
         while (true) {
             System.out.println(inputMsg);
             try {
@@ -179,8 +179,8 @@ public class InputHandler {
     }
 
     // get a float with min only
-    public static float getFloat(String inputMsg, String object, float min) {
-        return (float) getDouble(inputMsg, object, min);
+    public static float getFloatMin(String inputMsg, String object, float min) {
+        return (float) getDoubleMin(inputMsg, object, min);
     }
 
     // get a float with max only
