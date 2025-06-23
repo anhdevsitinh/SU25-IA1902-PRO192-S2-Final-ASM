@@ -1,5 +1,9 @@
 package utils;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,10 +14,10 @@ public class Validator {
     // Check valid for input Contract ID
     public static boolean isValidContractId(int contractId, Map<Integer, Contract> contractMap) {
 
-        // Id should be positive
-        // if (contractId <= 0) {
-        // return false;
-        // }
+        // Id <= 0 => false
+        if (contractId <= 0) {
+            return false;
+        }
 
         // Avoid NullPointerException
         if (contractMap == null) {
@@ -71,18 +75,58 @@ public class Validator {
     }
 
     // Check valid for input Start Date
-    public static boolean isValidStartDate(String startDate) {
+
+    public static boolean isValidDate(String date) {
+
+        DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("uuuu-MM-dd")
+                .withResolverStyle(ResolverStyle.STRICT); // fix date strictly
+
+        try {
+            DATE_FORMATTER.parse(date);
+            return true;
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+
+    }
+
+    public static boolean isValidDateRange(String startDate, String endDate) {
+        if (!isValidDate(startDate) || !isValidDate(endDate)) {
+            return false;
+        }
+
+        LocalDate starDateLocal = LocalDate.parse(startDate);
+        LocalDate endDateLocal = LocalDate.parse(endDate);
+
+        if (starDateLocal.isAfter(endDateLocal)) {
+            return false;
+        }
+
         return true;
     }
 
+    public static boolean isValidStartDate(String startDate) {
+
+        return isValidDate(startDate);
+    }
+
     // Check valid for input End Date
-    public static boolean isValidEndDate(String endDate) {
-        return true;
+    public static boolean isValidEndDate(String startDate, String endDate) {
+
+        // Case if people don't input startDate
+        if (startDate == null) {
+            return false;
+        }
+
+        return isValidDateRange(startDate, endDate);
     }
 
     // Check valid for input Total Value
     public static boolean isValidTotalValue(float totalValue) {
-        return true;
+
+        // Total Value must be positive.
+
+        return totalValue > 0;
     }
 
 }

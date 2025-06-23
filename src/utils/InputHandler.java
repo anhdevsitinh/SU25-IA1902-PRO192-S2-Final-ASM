@@ -44,7 +44,7 @@ public class InputHandler {
                 int number = Integer.parseInt(sc.nextLine());
 
                 if (number < min || number > max) {
-                    System.out.println(object + " is out of range from + " + min + " to " + max + ". Try again!!!");
+                    System.out.println(object + " is out of range from " + min + " to " + max + ". Try again!!!");
                     continue;
                 }
 
@@ -196,7 +196,7 @@ public class InputHandler {
 
             String str = sc.nextLine().trim();
 
-            if (str == null || str.isEmpty()) {
+            if (str.isEmpty()) {
                 System.out.println(object + " must not be empty!!!");
                 continue;
             }
