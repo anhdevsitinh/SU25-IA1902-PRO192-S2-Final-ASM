@@ -15,7 +15,7 @@ public class InputHandler {
 
     // get an integer
 
-    public static int getInt(String inputMsg, String errMsg) {
+    public static int getInt(String inputMsg, String object) {
         while (true) {
             System.out.print(inputMsg);
 
@@ -23,7 +23,7 @@ public class InputHandler {
                 int number = Integer.parseInt(sc.nextLine());
                 return number;
             } catch (NumberFormatException e) {
-                System.out.println(errMsg);
+                System.out.println("Invalid " + object + ". Try again!!");
             }
         }
     }

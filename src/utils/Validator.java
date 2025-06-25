@@ -80,6 +80,9 @@ public class Validator {
 
         DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("uuuu-MM-dd")
                 .withResolverStyle(ResolverStyle.STRICT); // fix date strictly
+        // strict: 31-6 throw error
+        // lenient: 31-6 to 1-7
+        // smart is smart
 
         try {
             DATE_FORMATTER.parse(date);
