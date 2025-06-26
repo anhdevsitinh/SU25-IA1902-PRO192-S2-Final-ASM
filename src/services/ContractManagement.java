@@ -135,6 +135,11 @@ public class ContractManagement implements ContractOperations {
         resultList.set(index2, tmp);
     }
 
+    private void syncContractsList() {
+        contracts.clear();
+        contracts.addAll(contractMap.values());
+    }
+
     @Override
     public void createContract(Contract contract) {
         System.out.println("=== Create New Contract ===");
@@ -296,6 +301,9 @@ public class ContractManagement implements ContractOperations {
 
     @Override
     public void updateContract(int contractID, Contract contract) {
+        // Use hashMap instead contract
+        // ContractID will handle here
+
         System.out.println("=== Update Contract ===");
 
         int clientID;
@@ -441,6 +449,7 @@ public class ContractManagement implements ContractOperations {
 
                 case 7:
                     System.out.println("Update successful");
+                    syncContractsList();
                     return;
             }
 

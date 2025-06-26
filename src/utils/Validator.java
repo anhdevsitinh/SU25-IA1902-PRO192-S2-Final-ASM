@@ -14,10 +14,10 @@ public class Validator {
     // Check valid for input Contract ID
     public static boolean isValidContractId(int contractId, Map<Integer, Contract> contractMap) {
 
-        // // Id <= 0 => false
-        // if (contractId <= 0) {
-        // return false;
-        // }
+        // Id <= 0 => false
+        if (contractId <= 0) {
+            return false;
+        }
 
         // Avoid NullPointerException
         if (contractMap == null) {

@@ -25,10 +25,8 @@ public class Main {
                     app.listAllContracts();
                     break;
                 case 3:
-
-                    Contract updateContract = new Contract();
-                    app.updateContract(0, updateContract);
-
+                    // Just for clean code xd :3
+                    app.updateContract(-1, null);
                     break;
                 case 4:
                     System.out.println("=== Delete Contract ===");
