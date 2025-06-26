@@ -8,7 +8,7 @@ public interface ContractOperations {
 
     public void createContract(Contract contract);
 
-    public void updateContract(int ContractID, Contract contract);
+    public void updateContract(int contractID, Contract contract);
 
     public boolean deleteContract(int contractID);
 

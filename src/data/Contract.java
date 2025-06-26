@@ -90,7 +90,7 @@ public class Contract {
                 "Name          : " + contractName + System.lineSeparator() +
                 "Start Date    : " + startDate + System.lineSeparator() +
                 "End Date      : " + endDate + System.lineSeparator() +
-                "Total Value   : " + totalValue + System.lineSeparator() +
+                "Total Value   : " + String.format("%.2f", totalValue) + System.lineSeparator() +
                 "-----------------------------";
     }
 }

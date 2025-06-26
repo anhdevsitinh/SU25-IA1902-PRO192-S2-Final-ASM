@@ -23,7 +23,7 @@ public class InputHandler {
                 int number = Integer.parseInt(sc.nextLine());
                 return number;
             } catch (NumberFormatException e) {
-                System.out.println("Invalid " + object + ". Try again!!");
+                System.out.println("Invalid " + object + ". Try again!!!");
             }
         }
     }

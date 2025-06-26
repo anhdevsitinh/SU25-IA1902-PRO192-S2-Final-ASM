@@ -1,3 +1,4 @@
+import data.Contract;
 import services.ContractManagement;
 import utils.InputHandler;
 
@@ -11,17 +12,23 @@ public class Main {
         while (true) {
 
             app.showMenu();
-            choice = InputHandler.getInt("Enter your choice: ", "Choice");
+            choice = InputHandler.getInt("Enter your choice: ", "Choice", 1, 7);
+            System.out.println();
+            System.out.println();
 
             switch (choice) {
                 case 1:
-                    System.out.println("=== Create New Contract ===");
+                    Contract newContract = new Contract();
+                    app.createContract(newContract);
                     break;
                 case 2:
-                    System.out.println("=== All Contracts List ===");
+                    app.listAllContracts();
                     break;
                 case 3:
-                    System.out.println("=== Update Contract Information ===");
+
+                    Contract updateContract = new Contract();
+                    app.updateContract(0, updateContract);
+
                     break;
                 case 4:
                     System.out.println("=== Delete Contract ===");
