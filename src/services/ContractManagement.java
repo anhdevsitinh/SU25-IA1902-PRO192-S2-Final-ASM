@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -263,7 +265,7 @@ public class ContractManagement implements ContractOperations {
 
         if (contracts.isEmpty() || contractMap.isEmpty()) {
             System.out.println("Nothing to display");
-            return null;
+            return Collections.emptyList();
         }
         // Display a list of all contracts, sorted alphabetically by contract name.
         // if names match, sort by Contract ID ascending.
@@ -496,12 +498,17 @@ public class ContractManagement implements ContractOperations {
 
         List<Contract> resultList = new ArrayList<>();
 
+        if (contracts.isEmpty()) {
+            System.out.println("Nothing Contracts in list");
+            return Collections.emptyList();
+        }
+
         name = InputHandler.getString("Enter Name of Contract you want to display: ", "Name");
 
         System.out.println("=== Find Contracts by Name ===");
 
         for (Contract contract : contracts) {
-            if (contract.getContractName().equalsIgnoreCase(name)) {
+            if (contract.getContractName().toLowerCase().contains(name.toLowerCase())) {
                 resultList.add(contract);
             }
         }
@@ -515,7 +522,9 @@ public class ContractManagement implements ContractOperations {
             System.out.println(contract);
         }
 
-        return resultList;
+        return resultList.isEmpty()
+                ? Collections.emptyList()
+                : resultList;
     }
 
     @Override
