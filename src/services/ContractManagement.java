@@ -1,5 +1,8 @@
 package services;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -143,6 +146,8 @@ public class ContractManagement implements ContractOperations {
     @Override
     public void createContract(Contract contract) {
         System.out.println("=== Create New Contract ===");
+
+        contract = new Contract();
 
         int contractID;
         int clientID;
@@ -315,7 +320,7 @@ public class ContractManagement implements ContractOperations {
 
         contractID = InputHandler.getInt("Enter Contract ID for update: ", "Contract ID");
 
-        if (contractMap.isEmpty() || contracts.isEmpty()) {
+        if (contractMap.isEmpty()) {
             System.out.println("Nothing to update");
             System.out.println("Update failed!!!");
             return;
@@ -459,14 +464,114 @@ public class ContractManagement implements ContractOperations {
 
     @Override
     public boolean deleteContract(int contractID) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteContract'");
+        System.out.println("=== Delete Contract ===");
+
+        if (contractMap.isEmpty()) {
+            System.out.println("Nothing Contract to delete");
+            System.out.println("Delete failed");
+            return false;
+        }
+
+        contractID = InputHandler.getInt("Enter Contract ID of Contract you want to delete: ", "Contract ID");
+
+        if (!contractMap.containsKey(contractID)) {
+            System.out.println("Contract not found");
+            System.out.println("Delete failed");
+            return false;
+        }
+
+        System.out.println("Contract: ");
+        System.out.println(contractMap.get(contractID));
+
+        contractMap.remove(contractID);
+        syncContractsList();
+
+        System.out.println("Delete successful");
+        return true;
     }
 
     @Override
     public List<Contract> findContractsByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findContractsByName'");
+        System.out.println("=== Find Contracts by Name ===");
+
+        List<Contract> resultList = new ArrayList<>();
+
+        name = InputHandler.getString("Enter Name of Contract you want to display: ", "Name");
+
+        System.out.println("=== Find Contracts by Name ===");
+
+        for (Contract contract : contracts) {
+            if (contract.getContractName().equalsIgnoreCase(name)) {
+                resultList.add(contract);
+            }
+        }
+
+        Comparator<Contract> BY_NAME_THEN_CONTRACTID = Comparator.comparing(Contract::getContractName)
+                .thenComparing(Contract::getContractID);
+
+        resultList.sort(BY_NAME_THEN_CONTRACTID);
+
+        for (Contract contract : resultList) {
+            System.out.println(contract);
+        }
+
+        return resultList;
     }
 
+    @Override
+    public boolean saveToFile(String url) {
+        System.out.println("=== Save Contracts to File ===");
+
+        File f = new File(url);
+
+        try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(f))) {
+            for (Contract contract : contracts) {
+                writer.write(contract.toString());
+                writer.write("\n");
+            }
+            writer.flush();
+            System.out.println("Save file successful");
+            return true;
+        } catch (Exception e) {
+            System.out.println("Save file error: " + e);
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        int choice;
+        ContractManagement app = new ContractManagement();
+        while (true) {
+            app.showMenu();
+            choice = utils.InputHandler.getInt("Enter your choice: ", "Choice", 1, 7);
+            System.out.println();
+            System.out.println();
+            switch (choice) {
+                case 1:
+                    app.createContract(null);
+                    break;
+                case 2:
+                    app.listAllContracts();
+                    break;
+                case 3:
+                    app.updateContract(-1, null);
+                    break;
+                case 4:
+                    app.deleteContract(-1);
+                    break;
+                case 5:
+                    app.findContractsByName(null);
+                    break;
+                case 6:
+                    app.saveToFile("car.txt");
+                    break;
+                case 7:
+                    System.out.println("See you again <3");
+                    break;
+            }
+            if (choice == 7) {
+                break;
+            }
+        }
+    }
 }

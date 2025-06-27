@@ -1,0 +1,135 @@
+-----------------------------
+Contract ID   : 2
+Client ID     : 12
+Type ID       : 5
+Name          : Bravo Maintenance
+Start Date    : 2023-05-01
+End Date      : 2024-05-01
+Total Value   : 800000,00
+-----------------------------
+-----------------------------
+Contract ID   : 13
+Client ID     : 3
+Type ID       : 2
+Name          : Alpha Consulting
+Start Date    : 2024-01-01
+End Date      : 2024-12-31
+Total Value   : 1000000,00
+-----------------------------
+-----------------------------
+Contract ID   : 9
+Client ID     : 6
+Type ID       : 7
+Name          : Foxtrot Other
+Start Date    : 2024-06-01
+End Date      : 2024-12-01
+Total Value   : 2000000,00
+-----------------------------
+-----------------------------
+Contract ID   : 3
+Client ID     : 7
+Type ID       : 6
+Name          : Golf Supply
+Start Date    : 2024-02-01
+End Date      : 2024-08-31
+Total Value   : 500000,00
+-----------------------------
+-----------------------------
+Contract ID   : 11
+Client ID     : 3
+Type ID       : 2
+Name          : Alpha Consulting
+Start Date    : 2024-01-01
+End Date      : 2024-12-31
+Total Value   : 1000000,00
+-----------------------------
+-----------------------------
+Contract ID   : 1
+Client ID     : 4
+Type ID       : 3
+Name          : Echo Leasing
+Start Date    : 2022-01-01
+End Date      : 2022-12-31
+Total Value   : 300000,00
+-----------------------------
+-----------------------------
+Contract ID   : 14
+Client ID     : 2
+Type ID       : 4
+Name          : Delta Outsourcing
+Start Date    : 2024-04-01
+End Date      : 2025-04-01
+Total Value   : 1200000,00
+-----------------------------
+-----------------------------
+Contract ID   : 4
+Client ID     : 2
+Type ID       : 4
+Name          : Delta Outsourcing
+Start Date    : 2024-04-01
+End Date      : 2025-04-01
+Total Value   : 1200000,00
+-----------------------------
+-----------------------------
+Contract ID   : 6
+Client ID     : 8
+Type ID       : 2
+Name          : Hotel Consulting
+Start Date    : 2024-07-01
+End Date      : 2025-07-01
+Total Value   : 750000,00
+-----------------------------
+-----------------------------
+Contract ID   : 7
+Client ID     : 3
+Type ID       : 2
+Name          : Alpha Consulting
+Start Date    : 2024-01-01
+End Date      : 2024-12-31
+Total Value   : 1000000,00
+-----------------------------
+-----------------------------
+Contract ID   : 8
+Client ID     : 9
+Type ID       : 4
+Name          : India Maintenance
+Start Date    : 2024-05-10
+End Date      : 2024-11-10
+Total Value   : 900000,00
+-----------------------------
+-----------------------------
+Contract ID   : 5
+Client ID     : 10
+Type ID       : 5
+Name          : Juliet Outsourcing
+Start Date    : 2023-01-01
+End Date      : 2023-12-31
+Total Value   : 1100000,00
+-----------------------------
+-----------------------------
+Contract ID   : 10
+Client ID     : 5
+Type ID       : 1
+Name          : Charlie Service
+Start Date    : 2024-03-01
+End Date      : 2024-09-01
+Total Value   : 600000,00
+-----------------------------
+-----------------------------
+Contract ID   : 12
+Client ID     : 7
+Type ID       : 6
+Name          : Golf Supply
+Start Date    : 2024-02-01
+End Date      : 2024-08-31
+Total Value   : 500000,00
+-----------------------------
+-----------------------------
+Contract ID   : 12312
+Client ID     : 10
+Type ID       : 2
+Name          : testFile
+Start Date    : 2025-01-21
+End Date      : 2025-01-23
+Total Value   : 12312312,00
+-----------------------------

@@ -16,4 +16,5 @@ public interface ContractOperations {
 
     public List<Contract> listAllContracts();
 
+    public boolean saveToFile(String url);
 }
