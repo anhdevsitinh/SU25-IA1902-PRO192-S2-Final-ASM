@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -534,6 +533,7 @@ public class ContractManagement implements ContractOperations {
         File f = new File(url);
 
         try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(f))) {
+            contracts = null; // Null pointer exception
             for (Contract contract : contracts) {
                 writer.write(contract.toString());
                 writer.write("\n");
@@ -572,7 +572,7 @@ public class ContractManagement implements ContractOperations {
                     app.findContractsByName(null);
                     break;
                 case 6:
-                    app.saveToFile("car.txt");
+                    app.saveToFile("Contracts.txt");
                     break;
                 case 7:
                     System.out.println("See you again <3");

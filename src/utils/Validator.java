@@ -20,6 +20,7 @@ public class Validator {
         }
 
         // Avoid NullPointerException
+
         if (contractMap == null) {
             return false;
         }
